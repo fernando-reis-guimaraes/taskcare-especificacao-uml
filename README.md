@@ -375,7 +375,7 @@ mindmap
         UC-09 Designar Projeto p/ Cliente
 
     Planejamento
-        UC-10 Consultor assumir Projeto
+        UC-10 Chefia assumir Projeto
         UC-11 Consultor planejar Projeto
 
     Execução
