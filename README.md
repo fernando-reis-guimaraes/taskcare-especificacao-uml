@@ -143,9 +143,9 @@ Lista agregada por Projeto/Cliente/Chefia com contagens e filtros:
 Proposta coerente com intenção do cliente:
 
 - **Vermelho**: existe tarefa atrasada considerando `prazoalterado ?? prazo` e não concluída, se `prazo` ou `prazoalterado` estiver preenchido.
-- **Amarelo**: há prazo do módulo e a submissão de finalização ocorreu após o prazo.
-- **Verde**: módulo finalizado/submetido e aguardando aprovar/rejeitar.
-- **Cinza**: módulo aprovado recentemente (ex.: últimos 15 dias; com opção “ver mais”).
+- **Laranja**: há prazo do módulo e a submissão de finalização ocorreu após o prazo.
+- **Amarelo**: módulo finalizado/submetido e aguardando aprovar/rejeitar.
+- **Verde**: módulo aprovado recentemente (ex.: últimos 15 dias; com opção “ver mais”).
 - **Sem cor**: todos demais, exemplo projeto aprovado a mais de 15 dias.
 
 ---
