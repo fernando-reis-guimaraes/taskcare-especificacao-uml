@@ -351,7 +351,7 @@ erDiagram
 - **UC-08 — Criar Modelo de Tarefa dentro do Modelo de Módulo**
 - **UC-09 — Designar Projeto para Cliente (copiar com vínculo ao modelo)**
 - **UC-10 — Chefia assumir Projeto sem chefia (pegar projeto)**
-- **UC-11 — Chefia planejar Projeto: atribuir Responsável por Módulo e prazos (opcional)**
+- **UC-11 — Consultor planejar Projeto: atribuir Responsável por Módulo e prazos (opcional)**
 - **UC-12 — Responsável gerir Tarefas do Módulo (CRUD)**
 - **UC-13 — Responsável concluir Tarefa (check)**
 - **UC-14 — Responsável finalizar Módulo com upload/link**
@@ -375,8 +375,8 @@ mindmap
         UC-09 Designar Projeto p/ Cliente
 
     Planejamento
-        UC-10 Chefia assumir Projeto
-        UC-11 Chefia planejar Projeto
+        UC-10 Consultor assumir Projeto
+        UC-11 Consultor planejar Projeto
 
     Execução
         UC-12 Gerir Tarefas por módulo
@@ -705,7 +705,7 @@ Chefia acessa lista de Projetos “Sem chefia” e clica em “Assumir”.
 - Chefia pode assumir projetos sem chefia.
 - Chefia edita módulos somente quando é chefia do projeto do qual o módulo faz parte (chefia do módulo é implícita via projeto).
 
-# UC-11 — Chefia planejar Projeto: atribuir Responsável por Módulo e prazos (opcional)
+# UC-11 — Consultor planejar Projeto: atribuir Responsável por Módulo e prazos (opcional)
 
 ## Objetivo
 
