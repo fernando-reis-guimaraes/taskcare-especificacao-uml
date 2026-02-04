@@ -351,7 +351,7 @@ erDiagram
 - **UC-08 — Criar Modelo de Tarefa dentro do Modelo de Módulo**
 - **UC-09 — Designar Projeto para Cliente (copiar com vínculo ao modelo)**
 - **UC-10 — Chefia assumir Projeto sem chefia (pegar projeto)**
-- **UC-11 — Consultor planejar Projeto: atribuir Responsável por Módulo e prazos (opcional)**
+- **UC-11 — Chefia planeja os Módulos do Projeto: atribuir Responsável por Módulo e prazos (opcional)**
 - **UC-12 — Responsável gerir Tarefas do Módulo (CRUD)**
 - **UC-13 — Responsável concluir Tarefa (check)**
 - **UC-14 — Responsável finalizar Módulo com upload/link**
@@ -372,7 +372,7 @@ mindmap
         UC-08 Criar Modelo de Tarefa
 
     Designação
-        UC-09 Designar Projeto p/ Cliente
+        UC-09 Designar Projeto p/ @Turma@
 
     Planejamento
         UC-10 Chefia assumir Projeto
@@ -571,11 +571,11 @@ Consultor, dentro de um Modelo de Módulo, seleciona “Adicionar Tarefa”.
 - Modelo de Tarefa não define responsável nem prazos (isso é definido no projeto real).
 - No projeto real, upload/link em tarefa é **opcional** (UC-13); no modelo, isso pode existir apenas como instrução textual.
 
-# UC-09 — Designar Projeto para Cliente (copiar com vínculo ao modelo)
+# UC-09 — Designar Projeto para Turma (copiar com vínculo ao modelo)
 
 ## Objetivo
 
-Criar um **Projeto** para um **Cliente (Instituição)** a partir de um **Modelo de Projeto**, copiando também seus **Módulos** e **Tarefas**, mantendo vínculo por FK aos modelos.
+Criar um **Projeto** para um **Turma** a partir de um **Modelo de Projeto**, copiando também seus **Módulos** e **Tarefas**, mantendo vínculo por FK aos modelos.
 
 ## Atores
 
@@ -649,7 +649,7 @@ Consultor seleciona um Modelo de Projeto e aciona “Designar para Cliente”.
 - “Designar” = **copiar + manter vínculo** (`*_id` apontando para modelos).
 - Após designação, Projeto/Módulo/Tarefa podem ser ajustados e novos itens podem ser adicionados:
   - novo `modulos` deve referenciar `modelosdemodulo_id` quando derivado de um modelo; se for módulo novo “fora do modelo”, pode ficar sem FK (decisão de produto/técnica).
-  - nova `tarefas` pode ter `modelosdetarefas_id=NULL` (tarefa nova não tem modelo)!!!
+  - nova `tarefas` pode ter `modelosdetarefas_id=NULL` (tarefa nova não tem modelo)
 
 # UC-10 — Chefia assumir Projeto sem chefia (pegar projeto)
 
@@ -681,7 +681,7 @@ Chefia acessa lista de Projetos “Sem chefia” e clica em “Assumir”.
 
 ## Fluxo principal
 
-1. Sistema lista Projetos sem chefia (do cliente do aluno, conforme política de acesso).
+1. Sistema lista Modelo de Projetos sem chefia da @TURMA@
 2. Chefia seleciona um Projeto e aciona “Assumir”.
 3. Sistema valida:
    - Projeto ainda está sem chefia.
@@ -705,7 +705,7 @@ Chefia acessa lista de Projetos “Sem chefia” e clica em “Assumir”.
 - Chefia pode assumir projetos sem chefia.
 - Chefia edita módulos somente quando é chefia do projeto do qual o módulo faz parte (chefia do módulo é implícita via projeto).
 
-# UC-11 — Consultor planejar Projeto: atribuir Responsável por Módulo e prazos (opcional)
+# UC-11 — Chefia planeja os Módulos do Projeto: atribuir Responsável por Módulo e prazos (opcional)
 
 ## Objetivo
 
@@ -741,9 +741,9 @@ Por **módulo**:
 
 ## Fluxo principal
 
-1. Sistema exibe lista de Módulos do Projeto (todos).
+1. Sistema exibe lista de Módulos do Projeto
 2. Chefia seleciona um Módulo e define:
-   - `responsavel_id` (obrigatório)
+   - `responsavel_id` (obrigatório) - filtrando somente os alunos da turma para qual o modelo do projeto foi criado
    - `prazo` (opcional)
 3. Chefia repete para os demais módulos.
 4. Sistema valida para cada módulo alterado:
@@ -765,7 +765,8 @@ Por **módulo**:
 
 - Responsável é sempre **Aluno**.
 - Chefia pode reatribuir responsável a qualquer momento, afetando a posse operacional das tarefas do módulo (quem enxerga/edita no UC-12/13/14).
-- Chefia também pode alterar tarefas do módulo (regra atualizada do cliente).
+- Chefia também pode alterar tarefas do módulo
+- Quando a chefia for selecionar o responsável por aquele módulo so pode aparecer os alunos/responsáveis daquela turma.
 
 # UC-12 — Responsável gerir Tarefas do Módulo (CRUD)
 
@@ -1104,3 +1105,5 @@ Para cada **Projeto** no escopo permitido:
 - **Sem registros no escopo**: exibir listagem vazia com mensagem neutra (sem erro).
 - **Filtro sem resultados**: exibir vazio mantendo filtros ativos.
 - **Permissão insuficiente**: impedir acesso ou retornar lista vazia (conforme padrão do sistema).
+
+Quando a chefia for selecionar o responsável por aquele módulo so pode aparecer os alunos/responsáveis daquela turma.
